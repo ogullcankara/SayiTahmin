@@ -44,12 +44,11 @@ class TahminEkraniViewController: UIViewController {
             
             if let tahmin = Int(veri) {
                  
-                
-                if kalanHak != 0 {
                     if tahmin == randomSayi!{
                         //doğru sayfa gecisi
                         let sonuc = true
                         performSegue(withIdentifier: "tahminTosonuc", sender: sonuc)
+                        return
                         
                     }
                     if tahmin > randomSayi!{
@@ -64,12 +63,12 @@ class TahminEkraniViewController: UIViewController {
                         kalanHakLabel.text = "Kalan Hak : \(kalanHak)"
                     }
                         
-                }else{
+                    if (kalanHak == 0){
                     //sayfa gecisi
                     let sonuc = false
                     performSegue(withIdentifier: "tahminTosonuc", sender: sonuc)
                     
-                }
+                    }
                 
                 sayiTahminTextField.text = ""
             }
